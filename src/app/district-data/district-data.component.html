@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-select-autocomplete class="mr-4"
+                [placeholder]="'Select District'" 
+                [options]="districtOptions" 
+                [multiple]='true'
+                name="optionDistrictSelector" 
+                ngDefaultControl 
+                [selectedOptions]="selectedDistrictOptions"
+                (selectionChange)="getSelectedDistrictsOptions($event)"
+                [formControl]="profileForm.controls['selected_district']">
+                    <!-- To use formControl within formGroup, provide [formControl] = formGroupName.controls[‘formControlName’] otherwise just [formControl] = ‘formControlName’ -->
+                </mat-select-autocomplete>
+
+
+<mat-select-autocomplete  class="mr-4"
+             [placeholder]="'Select CHC'" 
+             [options]="chcOptions" 
+             [multiple]='true'
+             name="optionChcSelector" 
+             ngDefaultControl 
+             [selectedOptions]="selectedChcOptions"
+             (selectionChange)="getSelectedChcOptions($event)" 
+             [formControl]="profileForm.controls['selected_chc']"> 
+  
+</mat-select-autocomplete>
+
+<mat-select-autocomplete  class="mr-4"
+             [placeholder]="'Select PHC'" 
+             [options]="phcOptions" 
+             [multiple]='true'
+             name="optionPhcSelector" 
+             ngDefaultControl 
+             [selectedOptions]="selectedPhcOptions"
+             (selectionChange)="getSelectedPhcOptions($event)" 
+             [formControl]="profileForm.controls['selected_phc']">
+  
+</mat-select-autocomplete>
+
+<mat-select-autocomplete  class="mr-4"
+             [placeholder]="'Select SC'" 
+             [options]="scOptions" 
+             [multiple]='false'
+             name="optionScSelector" 
+             ngDefaultControl 
+             [selectedOptions]="selectedScOptions"
+             (selectionChange)="getSelectedScOptions($event)" 
+             [formControl]="profileForm.controls['selected_sc']">
+  
+</mat-select-autocomplete>
+
+<mat-select-autocomplete  class="mr-4"
+             [placeholder]="'Select ANM'" 
+             [options]="anmOptions" 
+             [multiple]='false'
+             name="optionAnmSelector" 
+             ngDefaultControl 
+             [selectedOptions]="selectedAnmOptions"
+             (selectionChange)="getSelectedAnmOptions($event)" 
+             [formControl]="profileForm.controls['selected_anm']">
+  
+</mat-select-autocomplete>
+
+<mat-select-autocomplete  class="mr-4"
+             [placeholder]="'Select Status'" 
+             [options]="statusOptions" 
+             [multiple]='true'
+             name="optionStatusSelector" 
+             ngDefaultControl 
+             [selectedOptions]="selectedStatusOptions"
+             (selectionChange)="getSelectedStatusOptions($event)" 
+             [formControl]="profileForm.controls['selected_status']">
+  
+</mat-select-autocomplete>
+<mat-select-autocomplete class="mr-4"
+             [placeholder]="'Select Chart type'"
+             [options]="chartType"
+             [display]="'display'"
+             [value]="'value'"
+             [multiple]='false'
+             name="optionChartSelector"
+             ngDefaultControl
+             [selectedOptions]="selectedChartOptions"
+             (selectionChange)="getSelectedChartOptions($event)"
+             [formControl]="profileForm.controls['selected_chart']">
+            </mat-select-autocomplete>
+
+
+
+
+
+
+<div *ngIf="warningMessage !==''" class="alert alert-danger" role="alert">
+  <div class="row">
+      <div class="col-1 alert-icon-col">
+          <span class="fa fa-info-circle fa-fw"></span>
+      </div>
+      <div class="col">
+          {{warningMessage}}
+      </div>
+  </div>
+</div>
+<button
+mat-raised-button (click)="onResetSelection()" 
+color="primary">Reset Selection</button>
+<br>
+<!-- <select class="dropdown">
+  <option value="" selected="selected">SC</option>
+  <option *ngFor="let sc of resSc" [value]="sc">{{sc}}</option>
+</select>
+|
+<select class="dropdown">
+  <option value="" selected="selected">ANM</option>
+  <option *ngFor="let anm of resAnm" [value]="anm">{{anm}}</option>
+</select>  -->
+
+    </div>
+  </div>
+</div>
+
+
+<div style="text-align:center">
+<!-- |
+  <select class="dropdown" (change)="popupateFilteredChart($event)" >
+    <option value="" selected="selected">District</option>
+    <option *ngFor="let district of resDistrict" [value]="district">{{district}}</option>
+  </select>
+ |
+  <select class="dropdown" (change)="popupateFilteredChart($event)">
+    <option value="" selected="selected">CHC</option>
+    <option *ngFor="let chc of resChc" [value]="chc">{{chc}}</option>
+  </select>
+|
+  <select class="dropdown" (change)="popupateFilteredChart($event)">
+    <option value="" selected="selected">PHC</option>
+    <option *ngFor="let phc of resPhc" [value]="phc">{{phc}}</option>
+  </select> -->
+
+
+   <apx-chart 
+  [series]="chartOptions.series" 
+  [chart]="chartOptions.chart" 
+  [xaxis]="chartOptions.xaxis"
+  [title]="chartOptions.title"
+  [states]="chartOptions.states">
+</apx-chart>
+
+
+</div> 
